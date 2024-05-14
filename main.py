@@ -1,10 +1,11 @@
 import requests
 from flask import Flask, request
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 # Define your Slack webhook URL
 SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+
 
 def send_slack_notification(message):
     try:
@@ -58,5 +59,6 @@ def webhook():
         print(f"Error processing webhook event: {e}")
         return 'Error processing webhook event', 500
 
-if __name__ == '__main__':
+
+if _name_ == '_main_':
     app.run(debug=True)
