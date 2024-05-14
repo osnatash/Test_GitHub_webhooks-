@@ -17,13 +17,12 @@ Navigate to "Webhooks" or "Hooks" settings.
 Click on "Add webhook" or "Create webhook".
 # for linux version:
 use: https://test-github-webhooks-2.onrender.com
-(Render is a cloud platform for hosting and managing web applications, databases, and background jobs. It provides a production-ready environment for deploying and scaling web applications securely. not supported in Windows)
+(Render is a cloud platform for hosting and managing web applications. It provides a production-ready environment for deploying and scaling web applications securely, but not supports Windows)
 
 # for windows version:
 create your URL ngrok
 my ngrok URL for example = https://888e-2a06-c701-9666-3c00-8c51-bfd-9261-69c7.ngrok-free.app/webhook
-(Ngrok is a tool used for quickly exposing local servers to the internet. It's ideal for testing webhooks, sharing local development environments, and debugging APIs during development. support windows)
-
+(Ngrok is a tool used for quickly exposing local servers to the internet. It's ideal for testing webhooks and also supports windows)
 
 Choose "application/json" as the content type.
 Select "Just the push event" or configure as desired.
@@ -39,10 +38,18 @@ Choose the channel where you want to send notifications and click "Allow".
 Copy the Webhook URL provided.
 
 6. Configure Environment Variables
-SLACK_WEBHOOK_URL=https://your-slack-webhook-url
-Replace https://your-slack-webhook-url with the actual Webhook URL you copied in step 7 of the Slack setup.
-you can also include it as an environment value.
-Running the Application
+take the Webhook URL provided previous, and put it this way:
+# for linux version:
+Go to your Render project dashboard.
+Navigate to the "Environment" tab.
+Add a new environment variable with the name SLACK_WEBHOOK_URL and the corresponding value being your Slack webhook URL.
+Click "Save" to apply the changes.
+# for windows version:
+Open a terminal or command prompt.
+Set the environment variable using the following command:
+set SLACK_WEBHOOK_URL=your Slack webhook URL
+
+7. Running the Application
 # for linux version:
 Run the Flask application using the following command:
 gunicorn -b 0.0.0.0:$PORT main:app
