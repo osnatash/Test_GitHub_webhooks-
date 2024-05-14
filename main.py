@@ -1,10 +1,11 @@
+import os
 import requests
 from flask import Flask, request
 
 app = Flask(_name_)
 
 # Define your Slack webhook URL
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
+SLACK_WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL")
 
 
 def send_slack_notification(message):
