@@ -1,7 +1,7 @@
 # Test_GitHub_webhooks-
 # GitHub Commit Notifier for Slack
 This Python application utilizes GitHub webhooks to monitor changes on the main branch of a specified repository and sends notifications to a Slack channel with details about each commit.
-
+Support linux & windows
 # Setup Instructions
 1. Clone the Repository
 Clone this repository to your local machine:
@@ -15,8 +15,16 @@ pip install -r requirements.txt
 Go to your GitHub repository settings.
 Navigate to "Webhooks" or "Hooks" settings.
 Click on "Add webhook" or "Create webhook".
-Set the payload URL to your Flask application URL followed by /webhook (e.g., http://yourdomain.com/webhook).
-(you can use ngrok URL)
+# for linux version:
+use: https://test-github-webhooks-2.onrender.com
+(Render is a cloud platform for hosting and managing web applications, databases, and background jobs. It provides a production-ready environment for deploying and scaling web applications securely. not supported in Windows)
+
+# for windows version:
+create your URL ngrok
+my ngrok URL for example = https://888e-2a06-c701-9666-3c00-8c51-bfd-9261-69c7.ngrok-free.app/webhook
+(Ngrok is a tool used for quickly exposing local servers to the internet. It's ideal for testing webhooks, sharing local development environments, and debugging APIs during development. support windows)
+
+
 Choose "application/json" as the content type.
 Select "Just the push event" or configure as desired.
 Click "Add webhook" to save.
@@ -33,9 +41,13 @@ Copy the Webhook URL provided.
 6. Configure Environment Variables
 SLACK_WEBHOOK_URL=https://your-slack-webhook-url
 Replace https://your-slack-webhook-url with the actual Webhook URL you copied in step 7 of the Slack setup.
-
+you can also include it as an environment value.
 Running the Application
+# for linux version:
+Run the Flask application using the following command:
+gunicorn -b 0.0.0.0:$PORT main:app
+
+# for windows version:
 Run the Flask application using the following command:
 python main.py
 
-my ngrok URL = https://888e-2a06-c701-9666-3c00-8c51-bfd-9261-69c7.ngrok-free.app/webhook
