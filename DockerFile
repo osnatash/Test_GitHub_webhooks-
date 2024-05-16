@@ -1,0 +1,20 @@
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Set the working directory in the container
+WORKDIR /Test_GitHub_webhooks-
+
+# Copy the current directory contents into the container at /app
+COPY . /Test_GitHub_webhooks-
+
+# Install any needed dependencies specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose port 5000 to the outside world
+EXPOSE 5000
+
+# Define environment variable
+ENV SLACK_WEBHOOK_URL=https://hooks.slack.com/services/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
+
+# Command to run the application
+CMD ["python", "main.py"]
