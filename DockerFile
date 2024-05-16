@@ -10,7 +10,7 @@ COPY . /Test_GitHub_webhooks-
 # Install any needed dependencies specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 5000 to the outside world
+# should put the URL from step 3 in README file
 EXPOSE 5000
 
 # Define environment variable
